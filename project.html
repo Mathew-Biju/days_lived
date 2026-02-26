@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Lived Calculator</title>
+</head>
+<body>
+    <div class="main">
+        <input type="date" id="aa"><br>
+        <div class="but">
+            <button onclick="CalculateAge()">Calculate Days</button><br>
+        </div>
+        <label id="result"></label><br>
+        <script>
+            function CalculateAge() {
+                const dobInput=document.getElementById("aa").value;
+                if(!dobInput)
+                {
+                    document.getElementById("result").innerText="Please select a date ";
+                  return;
+                }
+                const dob=new Date(dobInput);
+                const today=new Date();
+                const diff=Math.abs(today-dob);
+                const day=Math.ceil(diff / (1000*60*60*24));
+                document.getElementById("result").innerText=day;
+            }
+        </script>
+    </body>
+    <link rel="stylesheet" href="style.css">
+</html>
