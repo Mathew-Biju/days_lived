@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAVA</title>
+    <title>Days Lived Calculator</title>
 </head>
-<body onload="Hello()">
-    <input type="Number" Id="aaa">
-    <button onclick="bye()">Click</button>
-    <h1 id="response"></h1>
-    <script>
-        function Hello() {
-            alert("Welcome")
-        }
-        function bye(params) {
-            var a=document.getElementById("aaa").value;
-            // console.log(a);
-            // if(a<18)
-            // {
-            //     document.getElementById("response").innerHTML="Not Eligible";
-            // }
-            // else{
-            //     document.getElementById("response").innerHTML="Eligible";
-            // }
-            
-        }
-    </script>
-</body>
+<body>
+    <div class="main">
+        <input type="date" id="aa"><br>
+        <div class="but">
+            <button onclick="CalculateAge()">Calculate Days</button><br>
+        </div>
+        <label id="result"></label><br>
+        <script>
+            function CalculateAge() {
+                const dobInput=document.getElementById("aa").value;
+                if(!dobInput)
+                {
+                    document.getElementById("result").innerText="Please select a date ";
+                  return;
+                }
+                const dob=new Date(dobInput);
+                const today=new Date();
+                const diff=Math.abs(today-dob);
+                const day=Math.ceil(diff / (1000*60*60*24));
+                document.getElementById("result").innerText=day;
+            }
+        </script>
+    </body>
+    <link rel="stylesheet" href="style.css">
 </html>
